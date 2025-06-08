@@ -4,11 +4,14 @@
   "main": "index.js",
   "scripts": {
     "dev:client": "webpack --watch",
-    "dev:server": "node --watch --conditions react-server server/main.js"
-},
+    "dev:server": "node --watch --conditions react-server server/main.js",
+    "build": "webpack --mode production",
+    "start": "node --conditions react-server server/main.js"
+  },
   "keywords": [],
-  "author": "Cyrus Khiabani",
-  "description": "React Server Components without Next.js",
+  "author": "Brian Holt",
+  "license": "Apache-2.0",
+  "description": "React Server Components without a framework!",
   "dependencies": {
     "@babel/core": "^7.26.8",
     "@babel/plugin-transform-modules-commonjs": "^7.26.3",
@@ -32,3 +35,4 @@
     "webpack-cli": "^6.0.1"
   }
 }
+

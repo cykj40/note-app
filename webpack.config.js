@@ -1,10 +1,9 @@
-const path = reqire("node:path");
+const path = require("node:path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ReactServerWebpackPlugin = require("react-server-webpack-plugin");
+const ReactServerWebpackPlugin = require("react-server-dom-webpack/plugin");
 
 const mode = process.env.NODE_ENV || "development";
 const development = mode === "development";
-
 
 const config = {
     mode,
@@ -24,7 +23,6 @@ const config = {
     },
     resolve: {
         extensions: [".js", ".jsx"],
-
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -33,20 +31,17 @@ const config = {
             template: "./index.html",
         }),
         new ReactServerWebpackPlugin({ isServer: false }),
-
     ],
     output: {
         chunkFilename: development
             ? "[id].chunk.js"
             : "[id].[contenthash].chunk.js",
         path: path.resolve(__dirname, "dist"),
-        fileName: "[name].js",
+        filename: "[name].js",
         clean: true,
-
     },
     optimization: {
         runtimeChunk: "single",
-
     }
 }
 
